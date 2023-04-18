@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProjePersonelDataAccess.Mapping;
 using ProjePersonelModel.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +23,16 @@ namespace ProjePersonelDataAccess.Context
         {
             optionsBuilder.UseSqlServer(@"Server=DESKTOP-QUGP58L\SQLEXPRESS;Database=ProjePersonnel;Trusted_Connection=True;TrustServerCertificate=True");
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+           
+            modelBuilder.ApplyConfiguration(new DepartmanMap());
+            modelBuilder.ApplyConfiguration(new PersonnelPhoneNumberMap());
+            modelBuilder.ApplyConfiguration(new PersonelAddressMap());
+            modelBuilder.ApplyConfiguration(new PersonnelMap());
+            modelBuilder.ApplyConfiguration(new MissionMap());
         }
     }
 

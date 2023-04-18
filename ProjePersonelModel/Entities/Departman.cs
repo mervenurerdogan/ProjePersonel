@@ -14,6 +14,8 @@ namespace ProjePersonelModel.Entities
         public string Description { get; set; }
 
         public virtual ICollection<Personnel> Personnels { get; set; }
+        public ICollection<Mission> Missions { get; set; }
+
 
     }
 }
