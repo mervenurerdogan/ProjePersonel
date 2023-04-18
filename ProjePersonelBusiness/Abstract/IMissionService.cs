@@ -6,11 +6,10 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjePersonelDataAccess.Abstract
+namespace ProjePersonelBusiness.Abstract
 {
-    public interface IMissionRepository:IEntityRepository<Mission>
+    public interface IMissionService:IBaseService<Mission>
     {
-
         List<Mission> GetByDepartmanID(int departmanID);
         List<Mission> GetAllFull(Expression<Func<Mission, bool>> filter);
         List<Mission> GetIsActiveAndNonDeletedMissionList();

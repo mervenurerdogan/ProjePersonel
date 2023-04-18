@@ -6,13 +6,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjePersonelDataAccess.Abstract
+namespace ProjePersonelBusiness.Abstract
 {
-    public interface IPersonnelRepository:IEntityRepository<Personnel>
+    public interface IPersonnelService:IBaseService<Personnel>
     {
         List<Personnel> GetByMissionID(int missionID);
         List<Personnel> GetByDepartmanID(int departmanID);
         List<Personnel> GetNoIsActivePersonnel();
         List<Personnel> GetAllFull(Expression<Func<Personnel, bool>> filter);
+
     }
 }

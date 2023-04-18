@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjePersonelCore\ProjePersonelCore.csproj" />
+    <ProjectReference Include="..\ProjePersonelDataAccess\ProjePersonelDataAccess.csproj" />
+    <ProjectReference Include="..\ProjePersonelModel\ProjePersonelModel.csproj" />
+  </ItemGroup>
+
 </Project>
