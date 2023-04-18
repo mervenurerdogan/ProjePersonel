@@ -1,0 +1,48 @@
+﻿@model List<ProjePersonelModel.Entities.Mission>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Görev Listesi</h1>
+
+@if (Model.Count != 0)
+{
+
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Görev Adı</th>
+                <th>Açıklama</th>
+                <th>Görev Departman</th>
+                <th>Düzenle</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MissionName</td>
+                    <td>@item.Description</td>
+                    <td>@item.Departman.DepartmanName</td>
+                    <td>
+                        <a asp-action="GorevGuncelle" asp-controller="Mission" asp-route-id="@item.MissionID" class="btn btn-warning btn-sm"> Düzenle</a>
+                    </td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Sistemde görev bulunamadı!
+        </p>
+        <a asp-action="GorevEkle" asp-controller="Mission" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Görev Ekle</a>
+    </div>
+}
+<a asp-action="GorevEkle" asp-controller="Mission" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Görev Ekle</a>

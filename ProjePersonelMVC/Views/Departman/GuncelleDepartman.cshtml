@@ -1,0 +1,33 @@
+﻿@model ProjePersonelModel.Entities.Departman
+@{
+    ViewData["Title"] = "GuncelleDepartman";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="GuncelleDepartman" class="w-75 mx-auto p-3" method="post">
+    <input type="hidden" asp-for="DepartmanID" />
+    <div class="form-group">
+        <label asp-for="DepartmanName">Departman Adı : </label>
+        <span asp-validation-for="DepartmanName" class="text-danger"></span>
+        <input asp-for="DepartmanName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Departman Açıklama : </label>
+        <span asp-validation-for="Description" class="text-danger"></span>
+        <input asp-for="Description" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="IsActive">Departman Aktif Mi? : </label>
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+        <input asp-for="IsActive" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="IsDeleted">Departman Kapatıldı  Mi? : </label>
+        <span asp-validation-for="IsDeleted" class="text-danger"></span>
+        <input asp-for="IsDeleted" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-info btn-sm">  Kaydet</button>
+</form>
+
+

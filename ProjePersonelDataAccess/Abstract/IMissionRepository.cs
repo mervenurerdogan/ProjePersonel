@@ -12,7 +12,10 @@ namespace ProjePersonelDataAccess.Abstract
     {
 
         List<Mission> GetByDepartmanID(int departmanID);
-        List<Mission> GetAllFull(Expression<Func<Mission, bool>> filter);
+     
         List<Mission> GetIsActiveAndNonDeletedMissionList();
+
+        List<Mission> GetAllFull();
+        
     }
 }

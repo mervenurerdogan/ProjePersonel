@@ -11,7 +11,9 @@ namespace ProjePersonelBusiness.Abstract
     public interface IMissionService:IBaseService<Mission>
     {
         List<Mission> GetByDepartmanID(int departmanID);
-        List<Mission> GetAllFull(Expression<Func<Mission, bool>> filter);
+
         List<Mission> GetIsActiveAndNonDeletedMissionList();
+
+        List<Mission> GetAllFull();
     }
 }

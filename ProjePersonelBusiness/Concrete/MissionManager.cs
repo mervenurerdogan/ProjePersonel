@@ -32,10 +32,9 @@ namespace ProjePersonelBusiness.Concrete
             return _missionRepository.GetAll();
         }
 
-        public List<Mission> GetAllFull(Expression<Func<Mission, bool>> filter)
+        public List<Mission> GetAllFull()
         {
-            return _missionRepository.GetAllFull(filter);
-                
+            return _missionRepository.GetAllFull();
         }
 
         public List<Mission> GetByDepartmanID(int departmanID)

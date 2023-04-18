@@ -1,0 +1,22 @@
+﻿@model ProjePersonelModel.Entities.Departman
+@{
+    ViewData["Title"] = "EkleDepartman";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EkleDepartman</h1>
+
+<form class="w-75 mx-auto p-3" method="post">
+    <div class="form-group">
+        <label asp-for="DepartmanName">Departman Adı : </label>
+       
+        <input asp-for="DepartmanName" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description">Departman Açıklama : </label>
+       
+        <input asp-for="Description" type="text" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-outline-dark btn-sm"> Kaydet</button>
+</form>
+

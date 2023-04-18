@@ -13,11 +13,7 @@ namespace ProjePersonelDataAccess.Concrete
 {
     public class EfMissionRepository : EfEntityFramewrokRepository<Mission>, IMissionRepository
     {
-        public List<Mission> GetAllFull(Expression<Func<Mission, bool>> filter)
-        {
-            using var context=new ProjePersonelContext();
-            return context.Missions.Include(I=>I.Departman).Where(filter).OrderByDescending(I=>I.CreatedDateTime).ToList();
-        }
+        
 
         public List<Mission> GetByDepartmanID(int departmanID)
         {
@@ -29,6 +25,14 @@ namespace ProjePersonelDataAccess.Concrete
         {
             using var context=new ProjePersonelContext();
             return context.Missions.Where(m => m.IsActive == true && m.IsDeleted == false).ToList();
+        }
+
+       
+
+        public List<Mission> GetAllFull()
+        {
+            using var context = new ProjePersonelContext();
+            return context.Missions.Include(m => m.Departman).Where(m => m.IsActive == true && m.IsDeleted == false).ToList();
         }
     }
 }
