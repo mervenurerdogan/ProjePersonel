@@ -17,6 +17,7 @@ namespace ProjePersonelDataAccess.Context
         public DbSet<PersonelPhoneNumber> PersonelPhoneNumbers { get; set; }
         public DbSet<Mission> Missions { get; set; }
         public DbSet<PersonnelAddress> Addresses { get; set; }
+        public DbSet<Gender> Genders { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,6 +34,7 @@ namespace ProjePersonelDataAccess.Context
             modelBuilder.ApplyConfiguration(new PersonelAddressMap());
             modelBuilder.ApplyConfiguration(new PersonnelMap());
             modelBuilder.ApplyConfiguration(new MissionMap());
+            modelBuilder.ApplyConfiguration(new GenderMap());
         }
     }
 

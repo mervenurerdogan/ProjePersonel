@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjePersonelDataAccess.Abstract
 {
-    public interface IPersonnelAddressRepository:IEntityRepository<PersonnelAddress>
+    public interface IGenderRepository:IEntityRepository<Gender>
     {
-        List<PersonnelAddress> GetFullAll();
     }
 }

@@ -17,16 +17,20 @@
         <span asp-validation-for="Description" class="text-danger"></span>
         <input asp-for="Description" type="text" class="form-control" />
     </div>
-    <div class="form-group">
-        <label asp-for="IsActive">Departman Aktif Mi? : </label>
-        <span asp-validation-for="IsActive" class="text-danger"></span>
-        <input asp-for="IsActive" type="text" class="form-control" />
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" asp-for="IsActive">
+        <label class="form-check-label" for="gridCheck">
+            Departman Şuanda Aktif mi?
+        </label>
     </div>
-    <div class="form-group">
-        <label asp-for="IsDeleted">Departman Kapatıldı  Mi? : </label>
-        <span asp-validation-for="IsDeleted" class="text-danger"></span>
-        <input asp-for="IsDeleted" type="text" class="form-control" />
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" asp-for="IsDeleted">
+        <label class="form-check-label" for="gridCheck">
+            Departman Kapatıldı mi?
+        </label>
     </div>
+  
+
     <button type="submit" class="btn btn-info btn-sm">  Kaydet</button>
 </form>
 

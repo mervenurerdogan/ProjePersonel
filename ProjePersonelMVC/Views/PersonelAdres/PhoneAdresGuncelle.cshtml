@@ -1,0 +1,37 @@
+﻿@model ProjePersonelModel.Entities.PersonnelAddress
+@{
+    ViewData["Title"] = "PhoneAdresGuncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PhoneAdresGuncelle</h1>
+
+<form asp-action="PhoneAdresGuncelle" method="post" class="row g-3">
+    <input type="hidden" asp-for="@Model.AdressID" />
+    <div class="col-md-6">
+        <label for="Address" class="form-label">Adres</label>
+        <input type="text" class="form-control" asp-for="Address">
+    </div>
+    <div class="col-md-6">
+        <label for="AddressDescription" class="form-label">Açıklama</label>
+        <input type="text" class="form-control" asp-for="AddressDescription">
+    </div>
+   
+
+    <div class="col-md-6">
+        <label for="PersonnelID" class="form-label">Personel Listesi  </label>
+        <select asp-for="PersonnelID" class="form-control" asp-items=" ViewBag.Personeller">
+            <option hidden value="-1"> Seçiniz </option>
+        </select>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" asp-for="IsActive">
+        <label class="form-check-label" for="gridCheck">
+            Personel hala adresi kullanıyor mu?
+        </label>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Personel Adres Bilgilerini Düzenle</button>
+    </div>
+</form>

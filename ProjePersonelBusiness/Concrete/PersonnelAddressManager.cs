@@ -36,6 +36,11 @@ namespace ProjePersonelBusiness.Concrete
           return _personnelAddressRepository.GetById(id);
         }
 
+        public List<PersonnelAddress> GetFullAll()
+        {
+          return _personnelAddressRepository.GetFullAll();
+        }
+
         public void Update(PersonnelAddress tablo)
         {
              _personnelAddressRepository.Update(tablo);

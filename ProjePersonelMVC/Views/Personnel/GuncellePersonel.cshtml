@@ -1,0 +1,84 @@
+﻿@model ProjePersonelModel.Entities.Personnel
+@{
+    ViewData["Title"] = "GuncellePersonel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Personel Bilgisini Güncelle</h1>
+
+<form asp-action="GuncellePersonel" method="post" class="row g-3">
+    <input type="hidden" asp-for="@Model.PersonnelID"/>
+    <div class="col-md-6">
+        <label for="Name" class="form-label">Ad</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <div class="col-md-6">
+        <label for="Surname" class="form-label">Soyad</label>
+        <input type="text" class="form-control" asp-for="Surname">
+    </div>
+    <div class="col-md-6">
+        <label for="IdentityNumber" class="form-label">Kimlik Numarası</label>
+        <input type="text" class="form-control" asp-for="IdentityNumber">
+    </div>
+    <div class="col-md-6">
+        <label for="BirthDate" class="form-label">Doğum Tarihi</label>
+        @Html.TextBoxFor(c => c.BirthDate, "{0:yyyy-MM-dd}", new {  type = "date", @class = "form-control" })
+
+
+    </div>
+    <div class="col-md-6">
+        <label for="inputAddress2" class="form-label">Doğum Yeri</label>
+        <input type="text" class="form-control" asp-for="PlaceOfBirth">
+    </div>
+    <div class="col-md-6">
+        <label for="StartWorkDate" class="form-label">İş Başlangıç Tarihi</label>
+        @Html.TextBoxFor(c => c.StartWorkDate, "{0:yyyy-MM-dd}", new {  type = "date", @class = "form-control" })
+    </div>
+    <div class="col-md-6">
+        <label for="FinishWorkDate" class="form-label">İş Bitiş Tarihi</label>
+        @Html.TextBoxFor(c => c.FinishWorkDate, "{0:yyyy-MM-dd}", new {  type = "date", @class = "form-control" })
+    </div>
+
+    <div class="col-md-6">
+        <label for="Email" class="form-label">Mail</label>
+        <input type="email" asp-for="Email" class="form-control" />
+    </div>
+    <div class="col-12">
+        <label for="SummaryInfoPersonnel" class="form-label">Personel Açıklama</label>
+        <textarea asp-for="SummaryInfoPersonnel" class="form-control"> </textarea>
+    </div>
+    <div class="col-md-3">
+        <label for="EducationStatus" class="form-label">Eğitim Durumu</label>
+        <input type="text" asp-for="EducationStatus" class="form-control" />
+
+    </div>
+
+    <div class="col-md-3">
+        <label for="GenderID" class="form-label">Cinsiyet  </label>
+        <select asp-for="GenderID" class="form-control" asp-items=" ViewBag.Cinsiyetler">
+            <option hidden value="-1"> Seçiniz </option>
+        </select>
+    </div>
+
+    <div class="col-md-3">
+        <label for="DepartmanID" class="form-label">Departman Seç</label>
+        <select asp-for="DepartmanID" class="form-control" asp-items=" ViewBag.Departmanlar">
+            <option hidden value="-1"> Seçiniz </option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="MissionID" class="form-label">Görev </label>
+        <select asp-for="MissionID" class="form-control" asp-items=" ViewBag.Gorevler">
+            <option hidden value="-1"> Seçiniz </option>
+        </select>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" asp-for="IsActive">
+        <label class="form-check-label" for="gridCheck">
+            Personel Çalışıyor mu?
+        </label>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Personel Bilgilerini Düzenle</button>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+﻿@model ProjePersonelModel.Entities.PersonelPhoneNumber
+@{
+    ViewData["Title"] = "PhoneNumberEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Numara Ekle</h1>
+
+<form asp-action="PhoneNumberEkle" method="post" class="w-75 mx-auto p-3">
+    <div class="form-group">
+        <label>Telefon Numarası: </label>
+
+        <input type="text" asp-for="PhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Açıklama: </label>
+
+        <input type="text" asp-for="NumberDescription" class="form-control"> 
+    </div>
+    <div class="form-group">
+        <label>Numara Eklenecek Personel Seçiniz: </label>
+        
+        <select asp-for="PersonnelID" class="form-control" asp-items="ViewBag.Personeller">
+            <option hidden value="-1"> Seçiniz </option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-info btn-sm">  Kaydet</button>
+</form>
+
+
+
+

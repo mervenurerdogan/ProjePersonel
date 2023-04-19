@@ -17,6 +17,7 @@
                 <th>Açıklama</th>
                 <th>Görev Departman</th>
                 <th>Düzenle</th>
+                <th>Detaylar</th>
                
             </tr>
         </thead>
@@ -29,6 +30,12 @@
                     <td>@item.Departman.DepartmanName</td>
                     <td>
                         <a asp-action="GorevGuncelle" asp-controller="Mission" asp-route-id="@item.MissionID" class="btn btn-warning btn-sm"> Düzenle</a>
+                    </td>
+                    <td>
+                        <a asp-action="GetByDepartmanID" asp-controller="Mission" asp-route-id="@item.MissionID" class="btn btn-info btn-sm"> Detaylar</a>
+                    </td>
+                    <td>
+                        <a asp-action="DepartmanSil" asp-controller="Mission" asp-route-id="@item.MissionID" class="btn btn-warning btn-sm"> Sil</a>
                     </td>
                    
                 </tr>

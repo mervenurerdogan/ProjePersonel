@@ -9,5 +9,6 @@ namespace ProjePersonelBusiness.Abstract
 {
     public interface IPersonnelAddressService:IBaseService<PersonnelAddress>
     {
+        List<PersonnelAddress> GetFullAll();
     }
 }

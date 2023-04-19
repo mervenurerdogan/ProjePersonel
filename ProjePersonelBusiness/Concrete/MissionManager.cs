@@ -47,6 +47,8 @@ namespace ProjePersonelBusiness.Concrete
             return _missionRepository.GetById(id);  
         }
 
+      
+
         public List<Mission> GetIsActiveAndNonDeletedMissionList()
         {
             return _missionRepository.GetIsActiveAndNonDeletedMissionList();

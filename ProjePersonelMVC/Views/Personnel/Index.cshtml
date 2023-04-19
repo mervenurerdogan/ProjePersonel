@@ -1,0 +1,74 @@
+﻿@model List<ProjePersonelModel.Entities.Personnel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Sisteme Kayıtlı Tüm Personellerin Listesi</h1>
+@if (Model.Count != 0)
+{
+
+
+    <table class="table table-striped table-bordered table-hover" style="width:80rem;">
+        <thead>
+            <tr>
+                <th>Kimlik Numarası</th>
+                <th>Ad Soyad</th>
+                <th>Doğum Günü</th>
+                <th>Doğum Yeri</th>
+                <th>Eğitim Durumu</th>
+                <th>İş Başlama Tarihi</th>
+                <th>İş Bitiş Tarihi</th>
+                <th>Cinsiyet</th>
+                <th>E-Posta</th>
+                <th>Personel Özet</th>
+                <th>Görev</th>
+                <th>Departman</th>
+                <th>Düzenle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdentityNumber</td>
+                    <td>@item.Name  @item.Surname</td>
+                    <td>@item.BirthDate.ToString("D")</td>
+                    <td>@item.PlaceOfBirth</td>
+                    <td>@item.EducationStatus</td>
+                    <td>@item.StartWorkDate</td>
+                    <td>@item.FinishWorkDate</td>
+                    <td>@item.Gender.GenderName</td>
+                    <td>@item.Email</td>
+                    <td>@item.SummaryInfoPersonnel</td>
+                    <td>@item.Departman.DepartmanName</td>
+                    <td>@item.Mission.MissionName</td>
+
+                    <td>
+                        <a asp-action="GuncellePersonel" asp-controller="Personnel" asp-route-id="@item.PersonnelID" class="btn btn-warning btn-sm"> Düzenle</a>
+                    </td>
+                    <td>
+                        <a asp-action="PersonelSilmedenSilme" asp-controller="Personnel" asp-route-id="@item.PersonnelID" class="btn btn-danger btn-sm"> Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Sistemde personel bulunamadı!
+        </p>
+        <a asp-action="EklePersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Personel Ekle</a>
+    </div>
+}
+<a asp-action="EklePersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Personel Ekle</a>
+<a asp-action="IstenAyrılanPersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> İşten Ayrılan Personeller</a>
+<a asp-action="CalisanPersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Çalışan  Personeller</a>
+<a asp-action="Index" asp-controller="PersonelAdres" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Personel Adres</a>
+<a asp-action="Index" asp-controller="PhoneNumber" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Personele Ait İletişim Numaraları</a>
+
+

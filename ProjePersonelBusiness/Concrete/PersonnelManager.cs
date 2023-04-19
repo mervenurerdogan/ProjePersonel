@@ -32,9 +32,9 @@ namespace ProjePersonelBusiness.Concrete
             return _personnelRepository.GetAll();
         }
 
-        public List<Personnel> GetAllFull(Expression<Func<Personnel, bool>> filter)
+        public List<Personnel> GetAllFull()
         {
-            return _personnelRepository.GetAllFull(filter);
+            return _personnelRepository.GetAllFull();
         }
 
         public List<Personnel> GetByDepartmanID(int departmanID)
@@ -52,9 +52,29 @@ namespace ProjePersonelBusiness.Concrete
            return _personnelRepository.GetByMissionID(missionID);
         }
 
+        public int GetirAktifCalisanPersonel()
+        {
+           return _personnelRepository.GetirAktifCalisanPersonel();
+        }
+
+        public int GetirAyrilmisCalisanPersonel()
+        {
+            return _personnelRepository.GetirAyrilmisCalisanPersonel();
+        }
+
+        public List<Personnel> GetIsActivePersonnel()
+        {
+            return _personnelRepository.GetIsActivePersonnel();
+        }
+
         public List<Personnel> GetNoIsActivePersonnel()
         {
             return _personnelRepository.GetNoIsActivePersonnel();
+        }
+
+        public void PersonelDelete(int id)
+        {
+             _personnelRepository.PersonelDelete(id);
         }
 
         public void Update(Personnel tablo)

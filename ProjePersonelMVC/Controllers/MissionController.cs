@@ -48,34 +48,48 @@ namespace ProjePersonelMVC.Controllers
         {
             var result=_missionService.GetById(id);
 
-            ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName",result.DepartmanID);
+            ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName", result.DepartmanID);
 
             return View(result);
         }
 
+       
+
         [HttpPost]
         public IActionResult GorevGuncelle(Mission mission)
         {
-            _missionService.Update(new Mission()
-            {
-                MissionID = mission.MissionID,
-                DepartmanID = mission.DepartmanID,
-                MissionName = mission.MissionName,
-                Description = mission.Description,
-                IsActive = mission.IsActive,
-                IsDeleted = mission.IsDeleted,
+            
+                _missionService.Update(new Mission
+                {
+                    MissionID = mission.MissionID,
+                    DepartmanID = mission.DepartmanID,
+                    MissionName = mission.MissionName,
+                    Description = mission.Description,
+                    IsActive = mission.IsActive,
+                    IsDeleted = mission.IsDeleted,
 
 
-            });
+                });
+                
+            
+           
             ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName", mission.DepartmanID);
 
             return RedirectToAction("Index");
         }
 
-        public IActionResult GorevSil(int id)
+
+
+        public IActionResult GetByDepartmanID(int id)
         {
-            _missionService.Delete(new Mission { MissionID = id });
-            return View("Index");
+            var result = _missionService.GetByDepartmanID(id);
+            return View(result);
         }
+
+        //public IActionResult GorevSil(int id)
+        //{
+        //    _missionService.Delete(new Mission { MissionID = id });
+        //    return Json(null);
+        //}
     }
 }

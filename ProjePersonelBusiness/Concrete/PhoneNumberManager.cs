@@ -36,6 +36,11 @@ namespace ProjePersonelBusiness.Concrete
             return _personnelNumberRepository.GetById(id);
         }
 
+        public List<PersonelPhoneNumber> GetFullAll()
+        {
+            return _personnelNumberRepository.GetFullAll();
+        }
+
         public void Update(PersonelPhoneNumber tablo)
         {
             _personnelNumberRepository.Update(tablo);

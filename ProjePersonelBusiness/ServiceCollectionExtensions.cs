@@ -25,6 +25,8 @@ namespace ProjePersonelBusiness
             serviceCollection.AddTransient<IPersonnelAddressService, PersonnelAddressManager>();
             serviceCollection.AddTransient<IPersonnelPhoneNumberService, PhoneNumberManager>();
             serviceCollection.AddTransient<IMissionService, MissionManager>();
+            serviceCollection.AddTransient<IGenderService, GenderManager>();
+
 
 
 
@@ -33,6 +35,7 @@ namespace ProjePersonelBusiness
             serviceCollection.AddScoped<IPersonnelNumberRepository, EfPersonnelPhoneNumberRepository>();
             serviceCollection.AddScoped<IPersonnelAddressRepository, EfPersonnelAddressRepository>();
             serviceCollection.AddScoped<IDepartmanRepsitory, EfDepartmanRepository>();
+            serviceCollection.AddScoped<IGenderRepository, EfGenderRepository>();
 
 
 

@@ -18,7 +18,7 @@ namespace ProjePersonelDataAccess.Concrete
         public List<Mission> GetByDepartmanID(int departmanID)
         {
             using var context=new ProjePersonelContext();
-            return context.Missions.Where(I=>I.DepartmanID==departmanID).ToList();
+            return context.Missions.Include(p=>p.Departman).Where(p=>p.DepartmanID==departmanID).ToList();
         }
 
         public List<Mission> GetIsActiveAndNonDeletedMissionList()

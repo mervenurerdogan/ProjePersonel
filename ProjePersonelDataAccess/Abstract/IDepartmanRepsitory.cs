@@ -9,6 +9,6 @@ namespace ProjePersonelDataAccess.Abstract
 {
     public interface IDepartmanRepsitory:IEntityRepository<Departman>
     {
-
+        int GetirToplamDepartmanSayisi();
     }
 }

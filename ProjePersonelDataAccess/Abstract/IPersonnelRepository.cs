@@ -13,6 +13,15 @@ namespace ProjePersonelDataAccess.Abstract
         List<Personnel> GetByMissionID(int missionID);
         List<Personnel> GetByDepartmanID(int departmanID);
         List<Personnel> GetNoIsActivePersonnel();
-        List<Personnel> GetAllFull(Expression<Func<Personnel, bool>> filter);
+        List<Personnel> GetIsActivePersonnel();
+        List<Personnel> GetAllFull();
+        void PersonelDelete(int id);
+
+        int GetirAktifCalisanPersonel();
+        int GetirAyrilmisCalisanPersonel();
+
+
+
+
     }
 }

@@ -15,5 +15,7 @@ namespace ProjePersonelBusiness.Abstract
         List<Mission> GetIsActiveAndNonDeletedMissionList();
 
         List<Mission> GetAllFull();
+
+     
     }
 }

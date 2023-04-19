@@ -13,7 +13,12 @@ namespace ProjePersonelBusiness.Abstract
         List<Personnel> GetByMissionID(int missionID);
         List<Personnel> GetByDepartmanID(int departmanID);
         List<Personnel> GetNoIsActivePersonnel();
-        List<Personnel> GetAllFull(Expression<Func<Personnel, bool>> filter);
+        List<Personnel> GetAllFull();
+        void PersonelDelete(int id);
+        List<Personnel> GetIsActivePersonnel();
+
+        int GetirAktifCalisanPersonel();
+        int GetirAyrilmisCalisanPersonel();
 
     }
 }

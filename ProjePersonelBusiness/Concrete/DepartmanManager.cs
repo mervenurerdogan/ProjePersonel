@@ -37,6 +37,11 @@ namespace ProjePersonelBusiness.Concrete
             return _departmanRepsitory.GetById(id);
         }
 
+        public int GetirToplamDepartmanSayisi()
+        {
+            return _departmanRepsitory.GetirToplamDepartmanSayisi();
+        }
+
         public void Update(Departman tablo)
         {
             _departmanRepsitory.Update(tablo);

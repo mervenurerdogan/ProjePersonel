@@ -54,5 +54,12 @@ namespace ProjePersonelMVC.Controllers
             });
             return RedirectToAction("Index");
         }
+
+        public IActionResult DepartmanSil(int id)
+        {
+            _departmanService.Delete(new Departman { DepartmanID = id });
+            return RedirectToAction("Index");
+        }
+
     }
 }

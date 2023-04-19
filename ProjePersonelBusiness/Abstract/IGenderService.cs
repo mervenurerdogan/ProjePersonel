@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjePersonelBusiness.Abstract
 {
-    public interface IPersonnelPhoneNumberService:IBaseService<PersonelPhoneNumber>
+    public interface IGenderService:IBaseService<Gender>
     {
-        List<PersonelPhoneNumber> GetFullAll();
     }
 }

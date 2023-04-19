@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using static ProjePersonelCore.ClassEnumtype;
+
 
 namespace ProjePersonelModel.Entities
 {
@@ -18,11 +18,11 @@ namespace ProjePersonelModel.Entities
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
         public string PlaceOfBirth { get; set; }
-        public EducationState EducationStatus { get; set; }
+        public string EducationStatus { get; set; }
         public DateTime StartWorkDate { get; set; }
         public DateTime FinishWorkDate { get; set; }
-        public Gender Gender { get; set; }
-        public DriverLicense DriverLicense { get; set; }
+
+        public  DateTime UpdateDateTime { get; set; } = DateTime.Now;
         public string SummaryInfoPersonnel { get; set; }
         public string Email { get; set; }
 
@@ -31,6 +31,9 @@ namespace ProjePersonelModel.Entities
         public virtual Mission Mission { get; set; }
         public int DepartmanID { get; set; }
         public virtual Departman Departman { get; set; }
+
+        public int  GenderID { get; set; }
+        public virtual  Gender Gender { get; set; }
 
 
 
