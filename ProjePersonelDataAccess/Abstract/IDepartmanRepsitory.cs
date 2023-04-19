@@ -10,5 +10,6 @@ namespace ProjePersonelDataAccess.Abstract
     public interface IDepartmanRepsitory:IEntityRepository<Departman>
     {
         int GetirToplamDepartmanSayisi();
+        List<Departman> GetirDepartmanCalisanPersonel(int departmanID);
     }
 }

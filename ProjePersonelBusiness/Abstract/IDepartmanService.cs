@@ -10,5 +10,6 @@ namespace ProjePersonelBusiness.Abstract
     public interface IDepartmanService:IBaseService<Departman>
     {
         int GetirToplamDepartmanSayisi();
+        List<Departman> GetirDepartmanCalisanPersonel(int personelID);
     }
 }

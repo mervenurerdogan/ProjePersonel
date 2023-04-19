@@ -20,6 +20,12 @@ namespace ProjePersonelMVC.Controllers
             return View(result);
         }
 
+        public IActionResult GetByPersonelID(int id)
+        {
+            var result = _personnelAddressService.GetByPersonelID(id);
+            return View(result);
+        }
+
         [HttpGet]
         public IActionResult PersonelAdresEkle()
         {
@@ -54,7 +60,7 @@ namespace ProjePersonelMVC.Controllers
         [HttpPost]
         public IActionResult PhoneAdresGuncelle(PersonnelAddress personnelAddress)
         {
-            _personnelAddressService.Update(new PersonnelAddress()
+            _personnelAddressService.Update(new PersonnelAddress
             {
                 AdressID = personnelAddress.AdressID,
                 AddressDescription = personnelAddress.AddressDescription,

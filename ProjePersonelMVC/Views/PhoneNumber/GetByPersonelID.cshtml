@@ -1,0 +1,45 @@
+﻿@model List<ProjePersonelModel.Entities.PersonelPhoneNumber>
+@{
+    ViewData["Title"] = "GetByPersonelID";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Personel Ait Diğer İletişim Bilgileri</h1>
+
+
+@if (Model.Count != 0)
+{
+
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Personel Adı Soyadı</th>
+                <th>Açıklama</th>
+                <th>Telefon Numarası</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Personnel.Name @item.Personnel.Surname</td>
+                    <td>@item.NumberDescription</td>
+                    <td>@item.PhoneNumber</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Sistemde numara bulunamadı!
+        </p>
+
+    </div>
+}
+<a asp-action="Index" asp-controller="PhoneNumber" class="btn btn-sm btn-info ">  Personel İletişim Sayfasına Dön</a>

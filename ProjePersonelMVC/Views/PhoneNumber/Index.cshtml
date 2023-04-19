@@ -34,7 +34,7 @@
                     <td>@item.NumberDescription</td>
                     
                     <td>
-                        <a asp-action="PhoneNumberGuncelle" asp-controller="PhoneNumber" asp-route-id="@item.PersonnelPhoneNumberID" class="btn btn-warning btn-sm"> Düzenle</a>
+                        <a asp-action="PhoneNumberGuncelle" asp-controller="PhoneNumber" asp-route-id="@item.PersonnelPhoneNumberID" class="btn btn-success btn-sm"> Düzenle</a>
                     </td>
                     <td>
                         <a asp-action="GetByPersonelID" asp-controller="PhoneNumber" asp-route-id="@item.PersonnelPhoneNumberID" class="btn btn-info btn-sm"> Detaylar</a>
@@ -54,7 +54,8 @@ else
         <p class="lead">
             Sistemde görev bulunamadı!
         </p>
-        <a asp-action="PhoneNumberEkle" asp-controller="PhoneNumber" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Numara Ekle</a>
+        <a asp-action="PhoneNumberEkle" asp-controller="PhoneNumber" class="btn btn-sm btn-info ">  Yeni Numara Ekle</a>
     </div>
 }
-<a asp-action="PhoneNumberEkle" asp-controller="PhoneNumber" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Numara Ekle</a>
+<a asp-action="PhoneNumberEkle" asp-controller="PhoneNumber" class="btn btn-sm btn-info ">  Yeni Numara Ekle</a>
+

@@ -10,5 +10,6 @@ namespace ProjePersonelBusiness.Abstract
     public interface IPersonnelPhoneNumberService:IBaseService<PersonelPhoneNumber>
     {
         List<PersonelPhoneNumber> GetFullAll();
+        List<PersonelPhoneNumber> GetByPersonelID(int PersonelID);
     }
 }

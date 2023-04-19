@@ -26,7 +26,10 @@
                     <td>@item.DepartmanName</td>
                     <td>@item.Description</td>
                     <td>
-                        <a asp-action="GuncelleDepartman" asp-controller="Departman" asp-route-id="@item.DepartmanID" class="btn btn-warning btn-sm"> Düzenle</a>
+                        <a asp-action="GuncelleDepartman" asp-controller="Departman" asp-route-id="@item.DepartmanID" class="btn btn-success btn-sm"> Düzenle</a>
+                    </td>
+                    <td>
+                        <a asp-action="GetirDepartmanPersonel" asp-controller="Departman" asp-route-id="@item.DepartmanID" class="btn btn-info btn-sm"> Detay</a>
                     </td>
                     <td>
                         <a asp-action="DepartmanSil" asp-controller="Departman" asp-route-id="@item.DepartmanID" class="btn btn-danger btn-sm"> Sil</a>
@@ -42,7 +45,7 @@ else
         <p class="lead">
             Sistemde departman bulunamadı!
         </p>
-        <a asp-action="EkleDepartman" asp-controller="Departman" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Departman Ekle</a>
+        <a asp-action="EkleDepartman" asp-controller="Departman" class="btn btn-sm btn-info " >Yeni Departman Ekle</a>
     </div>
 }
-<a asp-action="EkleDepartman" asp-controller="Departman" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Departman Ekle</a>
+<a asp-action="EkleDepartman" asp-controller="Departman" class="btn btn-sm btn-info ">  Yeni Departman Ekle</a>

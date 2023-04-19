@@ -1,4 +1,5 @@
-﻿using ProjePersonelDataAccess.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjePersonelDataAccess.Abstract;
 using ProjePersonelDataAccess.Context;
 using ProjePersonelModel.Entities;
 using System;
@@ -11,6 +12,12 @@ namespace ProjePersonelDataAccess.Concrete
 {
     public class EfDepartmanRepository : EfEntityFramewrokRepository<Departman>, IDepartmanRepsitory
     {
+        public List<Departman> GetirDepartmanCalisanPersonel(int departmanID)
+        {
+            using var context = new ProjePersonelContext();
+            return context.Departmen.Include(d=>d.Personnels).Where(d=>d.DepartmanID==departmanID).ToList();
+        }
+
         public int GetirToplamDepartmanSayisi()
         {
             using var context = new ProjePersonelContext();

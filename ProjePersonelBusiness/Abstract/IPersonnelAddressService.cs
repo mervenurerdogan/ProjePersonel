@@ -10,5 +10,6 @@ namespace ProjePersonelBusiness.Abstract
     public interface IPersonnelAddressService:IBaseService<PersonnelAddress>
     {
         List<PersonnelAddress> GetFullAll();
+        List<PersonnelAddress> GetByPersonelID(int personnelID);
     }
 }

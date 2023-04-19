@@ -10,5 +10,6 @@ namespace ProjePersonelDataAccess.Abstract
     public interface IPersonnelAddressRepository:IEntityRepository<PersonnelAddress>
     {
         List<PersonnelAddress> GetFullAll();
+        List<PersonnelAddress> GetByPersonelID(int personnelID);
     }
 }

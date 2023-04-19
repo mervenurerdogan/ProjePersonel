@@ -1,0 +1,48 @@
+﻿@model List<ProjePersonelModel.Entities.PersonnelAddress>
+@{
+    ViewData["Title"] = "GetByPersonelID";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h1> Personel Ait Diğer Adres Bilgileri</h1>
+
+
+@if (Model.Count != 0)
+{
+
+
+    <table class="table table-striped table-bordered">
+        <thead>
+           
+            <tr>
+                <th>Personel Adı Soyadı</th>
+                <th>Açıklama</th>
+                <th>Adres</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Personnel.Name @item.Personnel.Surname</td>
+                    <td>@item.AddressDescription</td>
+                    <td>@item.Address</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="text-center mt-4">
+        <p class="lead">
+            Sistemde adress bulunamadı!
+        </p>
+
+    </div>
+}
+<a asp-action="Index" asp-controller="PersonelAdres" class="btn btn-sm btn-info ">  Personel Adres Sayfasına Dön</a>

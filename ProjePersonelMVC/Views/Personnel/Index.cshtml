@@ -46,7 +46,7 @@
                     <td>@item.Mission.MissionName</td>
 
                     <td>
-                        <a asp-action="GuncellePersonel" asp-controller="Personnel" asp-route-id="@item.PersonnelID" class="btn btn-warning btn-sm"> Düzenle</a>
+                        <a asp-action="GuncellePersonel" asp-controller="Personnel" asp-route-id="@item.PersonnelID" class="btn btn-success btn-sm"> Düzenle</a>
                     </td>
                     <td>
                         <a asp-action="PersonelSilmedenSilme" asp-controller="Personnel" asp-route-id="@item.PersonnelID" class="btn btn-danger btn-sm"> Sil</a>
@@ -62,13 +62,13 @@ else
         <p class="lead">
             Sistemde personel bulunamadı!
         </p>
-        <a asp-action="EklePersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Personel Ekle</a>
+        <a asp-action="EklePersonel" asp-controller="Personnel" class="btn btn-sm btn-info ">  Yeni Personel Ekle</a>
     </div>
 }
-<a asp-action="EklePersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Yeni Personel Ekle</a>
-<a asp-action="IstenAyrılanPersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> İşten Ayrılan Personeller</a>
-<a asp-action="CalisanPersonel" asp-controller="Personnel" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Çalışan  Personeller</a>
-<a asp-action="Index" asp-controller="PersonelAdres" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Personel Adres</a>
-<a asp-action="Index" asp-controller="PhoneNumber" class="btn btn-sm btn-info my-2"> <i class="fas fa-plus-circle mr-2"></i> Personele Ait İletişim Numaraları</a>
+<a asp-action="EklePersonel" asp-controller="Personnel" class="btn btn-sm btn-info ">  Yeni Personel Ekle</a>
+<a asp-action="IstenAyrılanPersonel" asp-controller="Personnel" class="btn btn-sm btn-info ">  İşten Ayrılan Personeller</a>
+<a asp-action="CalisanPersonel" asp-controller="Personnel" class="btn btn-sm btn-info "> Çalışan  Personeller</a>
+<a asp-action="Index" asp-controller="PersonelAdres" class="btn btn-sm btn-info ">  Personel Adres</a>
+<a asp-action="Index" asp-controller="PhoneNumber" class="btn btn-sm btn-info ">  Personele Ait İletişim Numaraları</a>
 
 

@@ -21,6 +21,12 @@ namespace ProjePersonelMVC.Controllers
             var result = _personnelPhoneNumberService.GetFullAll();
             return View(result);
         }
+
+        public IActionResult GetByPersonelID(int id)
+        {
+            var result = _personnelPhoneNumberService.GetByPersonelID(id);
+            return View(result);
+        }
         [HttpGet]
         public IActionResult PhoneNumberEkle()
         {

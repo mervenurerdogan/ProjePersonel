@@ -36,6 +36,11 @@ namespace ProjePersonelBusiness.Concrete
           return _personnelAddressRepository.GetById(id);
         }
 
+        public List<PersonnelAddress> GetByPersonelID(int personnelID)
+        {
+            return _personnelAddressRepository.GetByPersonelID(personnelID);
+        }
+
         public List<PersonnelAddress> GetFullAll()
         {
           return _personnelAddressRepository.GetFullAll();

@@ -12,6 +12,13 @@ namespace ProjePersonelDataAccess.Concrete
 {
     public class EfPersonnelPhoneNumberRepository : EfEntityFramewrokRepository<PersonelPhoneNumber>, IPersonnelNumberRepository
     {
+      
+        public List<PersonelPhoneNumber> GetByPersonelID(int PersonelID)
+        {
+            using var context = new ProjePersonelContext();
+            return context.PersonelPhoneNumbers.Include(p => p.Personnel).Where(p => p.PersonnelID == PersonelID).ToList();
+        }
+
         public List<PersonelPhoneNumber> GetFullAll()
         {
             using var context =new  ProjePersonelContext();

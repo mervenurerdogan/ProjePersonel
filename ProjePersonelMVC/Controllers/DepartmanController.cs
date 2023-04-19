@@ -16,6 +16,12 @@ namespace ProjePersonelMVC.Controllers
             var result=_departmanService.GetAll();
             return View(result);
         }
+
+        public IActionResult GetirDepartmanPersonel(int id)
+        {
+            var result=_departmanService.GetirDepartmanCalisanPersonel(id);
+            return View(result);
+        }
         [HttpGet]
         public IActionResult EkleDepartman()
         {
