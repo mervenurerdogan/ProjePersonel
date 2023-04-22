@@ -27,7 +27,7 @@ namespace ProjePersonelDataAccess.Mapping
             builder.Property(p => p.PlaceOfBirth).IsRequired();
             builder.Property(p => p.EducationStatus).IsRequired();
             builder.Property(p => p.FinishWorkDate).IsRequired();
-            builder.Property(p => p.StartWorkDate).IsRequired();
+            builder.Property(p => p.IsActive).HasComputedColumnSql("CASE WHEN FinishWorkDate IS NULL THEN 1 ELSE 0 END");
             builder.Property(p => p.Email).IsRequired();
             
             

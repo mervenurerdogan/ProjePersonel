@@ -20,7 +20,7 @@ namespace ProjePersonelModel.Entities
         public string PlaceOfBirth { get; set; }
         public string EducationStatus { get; set; }
         public DateTime StartWorkDate { get; set; }
-        public DateTime FinishWorkDate { get; set; }
+        public DateTime? FinishWorkDate { get; set; }
 
         public  DateTime UpdateDateTime { get; set; } = DateTime.Now;
         public string SummaryInfoPersonnel { get; set; }
