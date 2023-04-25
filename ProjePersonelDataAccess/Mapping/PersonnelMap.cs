@@ -19,18 +19,14 @@ namespace ProjePersonelDataAccess.Mapping
             builder.Property(p => p.PersonnelID).ValueGeneratedOnAdd();
             builder.Property(p => p.IdentityNumber).IsRequired();
             builder.Property(p => p.IdentityNumber).HasMaxLength(11);
+            builder.HasIndex(p => p.IdentityNumber).IsUnique();
             builder.Property(p => p.Name).IsRequired();
             builder.Property(p => p.Name).HasMaxLength(50);
             builder.Property(p => p.Surname).IsRequired();
             builder.Property(p => p.Surname).HasMaxLength(50);
             builder.Property(p => p.BirthDate).IsRequired();
-            builder.Property(p => p.PlaceOfBirth).IsRequired();
-            builder.Property(p => p.EducationStatus).IsRequired();
-            builder.Property(p => p.FinishWorkDate).IsRequired();
-            builder.Property(p => p.IsActive).HasComputedColumnSql("CASE WHEN FinishWorkDate IS NULL THEN 1 ELSE 0 END");
+            builder.Property(p => p.StartWorkDate).IsRequired();
             builder.Property(p => p.Email).IsRequired();
-            
-            
             builder.Property(p => p.SummaryInfoPersonnel).HasMaxLength(300);
             builder.Property(p => p.IsDeleted).IsRequired();
             builder.Property(p => p.IsActive).IsRequired();
@@ -41,6 +37,8 @@ namespace ProjePersonelDataAccess.Mapping
             builder.HasOne<Departman>(d => d.Departman).WithMany(p => p.Personnels).HasForeignKey(p => p.DepartmanID);
             builder.HasOne<Mission>(m => m.Mission).WithMany(p => p.Personnels).HasForeignKey(p => p.MissionID);
             builder.HasOne<Gender>(g => g.Gender).WithMany(p => p.Personnels).HasForeignKey(p => p.GenderID);
+            builder.HasOne<PlaceOfBirth>(g => g.PlaceOfBirth).WithMany(p => p.Personnels).HasForeignKey(p => p.PlaceOfBirthID);
+            builder.HasOne<EducationStatus>(g => g.EducationStatus).WithMany(p => p.Personnels).HasForeignKey(p => p.EducationID);
 
             builder.HasData(new Personnel
             {
@@ -49,8 +47,7 @@ namespace ProjePersonelDataAccess.Mapping
                 Name = "Ayşe",
                 Surname = "Yılmaz",
                 BirthDate = new DateTime(1985, 3, 15),
-                PlaceOfBirth = "Ankara",
-                EducationStatus = "Lisans",
+                EducationID = 1,
                 FinishWorkDate = new DateTime(2022, 2, 1, 8, 0, 0),
                 StartWorkDate = new DateTime(2022, 2, 1, 17, 0, 0),
                 Email = "user@gmail.com",
@@ -58,6 +55,7 @@ namespace ProjePersonelDataAccess.Mapping
                 SummaryInfoPersonnel = "Personel Açıklama hakkında ",
                 DepartmanID = 1,
                 MissionID = 1,
+                PlaceOfBirthID =1,
                 IsActive = true,
                 IsDeleted = false,
                 CreatedDateTime = DateTime.Now,

@@ -12,12 +12,18 @@ namespace ProjePersonelMVC.Controllers
         private readonly IMissionService _missionService;
         private readonly IDepartmanService _departmanService;
         private readonly IGenderService _genderService;
-        public PersonnelController(IPersonnelService personnelService,IMissionService missionService,IDepartmanService departmanService,IGenderService genderService)
+        private readonly IPlaceOfBirthService _placeOfBirthService;
+        private readonly IEducationStatusService _educationStatusService;
+
+        public PersonnelController(IPersonnelService personnelService,IMissionService missionService,
+            IDepartmanService departmanService, IGenderService genderService, IPlaceOfBirthService placeOfBirthService, IEducationStatusService educationStatusService)
         {
             _personnelService = personnelService;
             _missionService = missionService;
             _departmanService = departmanService;
-            _genderService=genderService;
+            _genderService = genderService;
+            _placeOfBirthService = placeOfBirthService;
+            _educationStatusService = educationStatusService;
         }
         public IActionResult Index()
         {
@@ -44,6 +50,8 @@ namespace ProjePersonelMVC.Controllers
             ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName");
             ViewBag.Gorevler = new SelectList(_missionService.GetAll(), "MissionID", "MissionName");
             ViewBag.Cinsiyetler = new SelectList(_genderService.GetAll(), "GenderID", "GenderName");
+            ViewBag.Sehirler = new SelectList(_placeOfBirthService.GetAll(), "CityID", "CityName");
+            ViewBag.Egitimler = new SelectList(_educationStatusService.GetAll(), "EducationID", "EducationStatusName");
 
             return View(new Personnel());
         }
@@ -59,7 +67,6 @@ namespace ProjePersonelMVC.Controllers
                 Surname = personnel.Surname,
                 BirthDate = personnel.BirthDate,
                 EducationStatus = personnel.EducationStatus,
-                PlaceOfBirth = personnel.PlaceOfBirth,
                 FinishWorkDate = personnel.FinishWorkDate,
                 StartWorkDate = personnel.StartWorkDate,
                 Email = personnel.Email,
@@ -67,6 +74,8 @@ namespace ProjePersonelMVC.Controllers
                 DepartmanID = personnel.DepartmanID,
                 GenderID = personnel.GenderID,
                 MissionID = personnel.MissionID,
+                PlaceOfBirthID = personnel.PlaceOfBirthID,
+                EducationID=personnel.EducationID,
                 IsActive = true,
                 IsDeleted = false
 
@@ -74,6 +83,8 @@ namespace ProjePersonelMVC.Controllers
             ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName");
             ViewBag.Gorevler = new SelectList(_missionService.GetAll(), "MissionID", "MissionName");
             ViewBag.Cinsiyetler = new SelectList(_genderService.GetAll(), "GenderID", "GenderName");
+            ViewBag.Sehirler = new SelectList(_placeOfBirthService.GetAll(), "CityID", "CityName");
+            ViewBag.Egitimler = new SelectList(_educationStatusService.GetAll(), "EducationID", "EducationStatusName");
 
             return RedirectToAction("Index");
         }
@@ -85,6 +96,10 @@ namespace ProjePersonelMVC.Controllers
             ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName",result.DepartmanID);
             ViewBag.Gorevler = new SelectList(_missionService.GetAll(), "MissionID", "MissionName",result.MissionID);
             ViewBag.Cinsiyetler = new SelectList(_genderService.GetAll(), "GenderID", "GenderName",result.GenderID);
+            ViewBag.Sehirler = new SelectList(_placeOfBirthService.GetAll(), "CityID", "CityName",result.PlaceOfBirthID);
+            ViewBag.Egitimler = new SelectList(_educationStatusService.GetAll(), "EducationID", "EducationStatusName",result.EducationID);
+
+
             return View(result);
         }
 
@@ -97,12 +112,12 @@ namespace ProjePersonelMVC.Controllers
                 DepartmanID=personnel.DepartmanID,
                 GenderID=personnel.GenderID,
                 MissionID=personnel.MissionID,
-                IdentityNumber=personnel.IdentityNumber,
+                PlaceOfBirthID = personnel.PlaceOfBirthID,
+                IdentityNumber =personnel.IdentityNumber,
                 Name=personnel.Name,
                 Surname=personnel.Surname,
                 BirthDate=personnel.BirthDate,
-                PlaceOfBirth=personnel.PlaceOfBirth,
-                EducationStatus=personnel.EducationStatus,
+                EducationID=personnel.EducationID,
                 StartWorkDate=personnel.StartWorkDate,
                 FinishWorkDate=personnel.FinishWorkDate,
                 Email=personnel.Email,
@@ -113,6 +128,10 @@ namespace ProjePersonelMVC.Controllers
             ViewBag.Departmanlar = new SelectList(_departmanService.GetAll(), "DepartmanID", "DepartmanName", personnel.DepartmanID);
             ViewBag.Gorevler = new SelectList(_missionService.GetAll(), "MissionID", "MissionName", personnel.MissionID);
             ViewBag.Cinsiyetler = new SelectList(_genderService.GetAll(), "GenderID", "GenderName", personnel.GenderID);
+            ViewBag.Sehirler = new SelectList(_placeOfBirthService.GetAll(), "CityID", "CityName", personnel.PlaceOfBirthID);
+            ViewBag.Egitimler = new SelectList(_educationStatusService.GetAll(), "EducationID", "EducationStatusName", personnel.EducationID);
+
+
             return RedirectToAction("Index");
         }
 

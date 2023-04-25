@@ -18,11 +18,13 @@ namespace ProjePersonelDataAccess.Context
         public DbSet<Mission> Missions { get; set; }
         public DbSet<PersonnelAddress> Addresses { get; set; }
         public DbSet<Gender> Genders { get; set; }
+        public DbSet<PlaceOfBirth> PlaceOfBirths { get; set; }
+        public DbSet<EducationStatus> EducationStatuses { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-QUGP58L\SQLEXPRESS;Database=ProjePersonnel;Trusted_Connection=True;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-QUGP58L\SQLEXPRESS;Database=ProjePersonnelDB;Trusted_Connection=True;TrustServerCertificate=True");
 
         }
 
@@ -35,6 +37,8 @@ namespace ProjePersonelDataAccess.Context
             modelBuilder.ApplyConfiguration(new PersonnelMap());
             modelBuilder.ApplyConfiguration(new MissionMap());
             modelBuilder.ApplyConfiguration(new GenderMap());
+            modelBuilder.ApplyConfiguration(new PlaceOfBirthMap());
+            modelBuilder.ApplyConfiguration(new EducationStatusMap());
         }
     }
 

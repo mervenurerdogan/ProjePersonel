@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProjePersonelDataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class mig1 : Migration
+    public partial class migfirst : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,6 +28,54 @@ namespace ProjePersonelDataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Departments", x => x.DepartmanID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EducationStatuses",
+                columns: table => new
+                {
+                    EducationID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EducationStatusName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EducationStatuses", x => x.EducationID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Genders",
+                columns: table => new
+                {
+                    GenderID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GenderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Genders", x => x.GenderID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PlaceOfBirths",
+                columns: table => new
+                {
+                    CityID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CityName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PlaceOfBirths", x => x.CityID);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,16 +112,16 @@ namespace ProjePersonelDataAccess.Migrations
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PlaceOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EducationStatus = table.Column<int>(type: "int", nullable: false),
                     StartWorkDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FinishWorkDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Gender = table.Column<int>(type: "int", nullable: false),
-                    DriverLicense = table.Column<int>(type: "int", nullable: false),
+                    UpdateDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SummaryInfoPersonnel = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MissionID = table.Column<int>(type: "int", nullable: false),
                     DepartmanID = table.Column<int>(type: "int", nullable: false),
+                    GenderID = table.Column<int>(type: "int", nullable: false),
+                    EducationID = table.Column<int>(type: "int", nullable: false),
+                    PlaceOfBirthID = table.Column<int>(type: "int", nullable: false),
                     CreatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -88,10 +136,28 @@ namespace ProjePersonelDataAccess.Migrations
                         principalColumn: "DepartmanID",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
+                        name: "FK_Personnels_EducationStatuses_EducationID",
+                        column: x => x.EducationID,
+                        principalTable: "EducationStatuses",
+                        principalColumn: "EducationID",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Personnels_Genders_GenderID",
+                        column: x => x.GenderID,
+                        principalTable: "Genders",
+                        principalColumn: "GenderID",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
                         name: "FK_Personnels_PersonnelMissions_MissionID",
                         column: x => x.MissionID,
                         principalTable: "PersonnelMissions",
                         principalColumn: "MissionID",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Personnels_PlaceOfBirths_PlaceOfBirthID",
+                        column: x => x.PlaceOfBirthID,
+                        principalTable: "PlaceOfBirths",
+                        principalColumn: "CityID",
                         onDelete: ReferentialAction.NoAction);
                 });
 
@@ -148,33 +214,52 @@ namespace ProjePersonelDataAccess.Migrations
                 columns: new[] { "DepartmanID", "CreatedDateTime", "DepartmanName", "Description", "IsActive", "IsDeleted" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(3487), "Yazılım", "A şirketinin    Yazılım Bölümü ", true, false },
-                    { 2, new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(3490), "Muhasebe", "A şirketinin    Muhasebe Bölümü ", true, false }
+                    { 1, new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(394), "Yazılım", "A şirketinin    Yazılım Bölümü ", true, false },
+                    { 2, new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(399), "Muhasebe", "A şirketinin    Muhasebe Bölümü ", true, false }
                 });
+
+            migrationBuilder.InsertData(
+                table: "EducationStatuses",
+                columns: new[] { "EducationID", "CreatedDateTime", "EducationStatusName", "IsActive", "IsDeleted" },
+                values: new object[] { 1, new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(5808), "İlköğretim", true, false });
+
+            migrationBuilder.InsertData(
+                table: "Genders",
+                columns: new[] { "GenderID", "CreatedDateTime", "GenderName", "IsActive", "IsDeleted" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(3110), "Kadın", true, false },
+                    { 2, new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(3112), "Erkek", true, false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PlaceOfBirths",
+                columns: new[] { "CityID", "CityName", "CreatedDateTime", "IsActive", "IsDeleted" },
+                values: new object[] { 1, "Adana", new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(4477), true, false });
 
             migrationBuilder.InsertData(
                 table: "PersonnelMissions",
                 columns: new[] { "MissionID", "CreatedDateTime", "DepartmanID", "Description", "IsActive", "IsDeleted", "MissionName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 4, 18, 4, 10, 55, 55, DateTimeKind.Local).AddTicks(1454), 1, "A şirketi  yazılım bölümünde çalışan görevi mühendis olan kişi", true, false, "Mühendis" },
-                    { 2, new DateTime(2023, 4, 18, 4, 10, 55, 55, DateTimeKind.Local).AddTicks(1461), 2, "A şirketi  muhasebe bölümünde çalışan görevi muhasebeci olan kişi", true, false, "Muhasebeci" }
+                    { 1, new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(2505), 1, "A şirketi  yazılım bölümünde çalışan görevi mühendis olan kişi", true, false, "Mühendis" },
+                    { 2, new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(2508), 2, "A şirketi  muhasebe bölümünde çalışan görevi muhasebeci olan kişi", true, false, "Muhasebeci" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Personnels",
-                columns: new[] { "PersonnelID", "BirthDate", "CreatedDateTime", "DepartmanID", "DriverLicense", "EducationStatus", "Email", "FinishWorkDate", "Gender", "IdentityNumber", "IsActive", "IsDeleted", "MissionID", "Name", "PlaceOfBirth", "StartWorkDate", "SummaryInfoPersonnel", "Surname" },
-                values: new object[] { 1, new DateTime(1985, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(9377), 1, 3, 4, "user@gmail.com", new DateTime(2022, 2, 1, 8, 0, 0, 0, DateTimeKind.Unspecified), 2, "98765432122", true, false, 1, "Ayşe", "Ankara", new DateTime(2022, 2, 1, 17, 0, 0, 0, DateTimeKind.Unspecified), "Personel Açıklama hakkında ", "Yılmaz" });
+                columns: new[] { "PersonnelID", "BirthDate", "CreatedDateTime", "DepartmanID", "EducationID", "Email", "FinishWorkDate", "GenderID", "IdentityNumber", "IsActive", "IsDeleted", "MissionID", "Name", "PlaceOfBirthID", "StartWorkDate", "SummaryInfoPersonnel", "Surname", "UpdateDateTime" },
+                values: new object[] { 1, new DateTime(1985, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(1139), 1, 1, "user@gmail.com", new DateTime(2022, 2, 1, 8, 0, 0, 0, DateTimeKind.Unspecified), 1, "98765432122", true, false, 1, "Ayşe", 1, new DateTime(2022, 2, 1, 17, 0, 0, 0, DateTimeKind.Unspecified), "Personel Açıklama hakkında ", "Yılmaz", new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(1140) });
 
             migrationBuilder.InsertData(
                 table: "PersonnelAddresses",
                 columns: new[] { "AdressID", "Address", "AddressDescription", "CreatedDateTime", "IsActive", "IsDeleted", "PersonnelID" },
-                values: new object[] { 1, "Çiçek sokak gül apartmanı No10", "Ev Adresi", new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(6713), true, false, 1 });
+                values: new object[] { 1, "Çiçek sokak gül apartmanı No10", "Ev Adresi", new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(4373), true, false, 1 });
 
             migrationBuilder.InsertData(
                 table: "PersonnelPhoneNumbers",
                 columns: new[] { "PersonnelPhoneNumberID", "CreatedDateTime", "IsActive", "IsDeleted", "NumberDescription", "PersonnelID", "PhoneNumber" },
-                values: new object[] { 1, new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(5294), true, false, "Cep Telefon Numarası", 1, "98763215472" });
+                values: new object[] { 1, new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(2672), true, false, "Cep Telefon Numarası", 1, "98763215472" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersonnelAddresses_PersonnelID",
@@ -197,9 +282,24 @@ namespace ProjePersonelDataAccess.Migrations
                 column: "DepartmanID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Personnels_EducationID",
+                table: "Personnels",
+                column: "EducationID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Personnels_GenderID",
+                table: "Personnels",
+                column: "GenderID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Personnels_MissionID",
                 table: "Personnels",
                 column: "MissionID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Personnels_PlaceOfBirthID",
+                table: "Personnels",
+                column: "PlaceOfBirthID");
         }
 
         /// <inheritdoc />
@@ -215,7 +315,16 @@ namespace ProjePersonelDataAccess.Migrations
                 name: "Personnels");
 
             migrationBuilder.DropTable(
+                name: "EducationStatuses");
+
+            migrationBuilder.DropTable(
+                name: "Genders");
+
+            migrationBuilder.DropTable(
                 name: "PersonnelMissions");
+
+            migrationBuilder.DropTable(
+                name: "PlaceOfBirths");
 
             migrationBuilder.DropTable(
                 name: "Departments");

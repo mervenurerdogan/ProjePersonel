@@ -6,151 +6,168 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProjePersonelDataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class mig4 : Migration
+    public partial class mig2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<DateTime>(
-                name: "UpdateDateTime",
-                table: "Personnels",
-                type: "datetime2",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
             migrationBuilder.UpdateData(
                 table: "Departments",
                 keyColumn: "DepartmanID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 14, DateTimeKind.Local).AddTicks(4573));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 277, DateTimeKind.Local).AddTicks(9869));
 
             migrationBuilder.UpdateData(
                 table: "Departments",
                 keyColumn: "DepartmanID",
                 keyValue: 2,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 14, DateTimeKind.Local).AddTicks(4579));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 277, DateTimeKind.Local).AddTicks(9872));
+
+            migrationBuilder.UpdateData(
+                table: "EducationStatuses",
+                keyColumn: "EducationID",
+                keyValue: 1,
+                column: "CreatedDateTime",
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 279, DateTimeKind.Local).AddTicks(4082));
 
             migrationBuilder.UpdateData(
                 table: "Genders",
                 keyColumn: "GenderID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 15, DateTimeKind.Local).AddTicks(3584));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 279, DateTimeKind.Local).AddTicks(1637));
 
             migrationBuilder.UpdateData(
                 table: "Genders",
                 keyColumn: "GenderID",
                 keyValue: 2,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 15, DateTimeKind.Local).AddTicks(3585));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 279, DateTimeKind.Local).AddTicks(1640));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelAddresses",
                 keyColumn: "AdressID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 14, DateTimeKind.Local).AddTicks(8545));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 278, DateTimeKind.Local).AddTicks(3397));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelMissions",
                 keyColumn: "MissionID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 15, DateTimeKind.Local).AddTicks(3037));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 279, DateTimeKind.Local).AddTicks(1120));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelMissions",
                 keyColumn: "MissionID",
                 keyValue: 2,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 15, DateTimeKind.Local).AddTicks(3041));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 279, DateTimeKind.Local).AddTicks(1126));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelPhoneNumbers",
                 keyColumn: "PersonnelPhoneNumberID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 21, 45, 40, 14, DateTimeKind.Local).AddTicks(6764));
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 278, DateTimeKind.Local).AddTicks(1767));
 
             migrationBuilder.UpdateData(
                 table: "Personnels",
                 keyColumn: "PersonnelID",
                 keyValue: 1,
                 columns: new[] { "CreatedDateTime", "UpdateDateTime" },
-                values: new object[] { new DateTime(2023, 4, 18, 21, 45, 40, 15, DateTimeKind.Local).AddTicks(1762), new DateTime(2023, 4, 18, 21, 45, 40, 15, DateTimeKind.Local).AddTicks(1751) });
+                values: new object[] { new DateTime(2023, 4, 22, 21, 4, 30, 278, DateTimeKind.Local).AddTicks(9792), new DateTime(2023, 4, 22, 21, 4, 30, 278, DateTimeKind.Local).AddTicks(9797) });
+
+            migrationBuilder.UpdateData(
+                table: "PlaceOfBirths",
+                keyColumn: "CityID",
+                keyValue: 1,
+                column: "CreatedDateTime",
+                value: new DateTime(2023, 4, 22, 21, 4, 30, 279, DateTimeKind.Local).AddTicks(2896));
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "UpdateDateTime",
-                table: "Personnels");
-
             migrationBuilder.UpdateData(
                 table: "Departments",
                 keyColumn: "DepartmanID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 253, DateTimeKind.Local).AddTicks(6677));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(394));
 
             migrationBuilder.UpdateData(
                 table: "Departments",
                 keyColumn: "DepartmanID",
                 keyValue: 2,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 253, DateTimeKind.Local).AddTicks(6678));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(399));
+
+            migrationBuilder.UpdateData(
+                table: "EducationStatuses",
+                keyColumn: "EducationID",
+                keyValue: 1,
+                column: "CreatedDateTime",
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(5808));
 
             migrationBuilder.UpdateData(
                 table: "Genders",
                 keyColumn: "GenderID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 254, DateTimeKind.Local).AddTicks(4120));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(3110));
 
             migrationBuilder.UpdateData(
                 table: "Genders",
                 keyColumn: "GenderID",
                 keyValue: 2,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 254, DateTimeKind.Local).AddTicks(4122));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(3112));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelAddresses",
                 keyColumn: "AdressID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 253, DateTimeKind.Local).AddTicks(9849));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(4373));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelMissions",
                 keyColumn: "MissionID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 254, DateTimeKind.Local).AddTicks(3721));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(2505));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelMissions",
                 keyColumn: "MissionID",
                 keyValue: 2,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 254, DateTimeKind.Local).AddTicks(3722));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(2508));
 
             migrationBuilder.UpdateData(
                 table: "PersonnelPhoneNumbers",
                 keyColumn: "PersonnelPhoneNumberID",
                 keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 253, DateTimeKind.Local).AddTicks(8283));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(2672));
 
             migrationBuilder.UpdateData(
                 table: "Personnels",
                 keyColumn: "PersonnelID",
                 keyValue: 1,
+                columns: new[] { "CreatedDateTime", "UpdateDateTime" },
+                values: new object[] { new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(1139), new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(1140) });
+
+            migrationBuilder.UpdateData(
+                table: "PlaceOfBirths",
+                keyColumn: "CityID",
+                keyValue: 1,
                 column: "CreatedDateTime",
-                value: new DateTime(2023, 4, 18, 19, 10, 20, 254, DateTimeKind.Local).AddTicks(2615));
+                value: new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(4477));
         }
     }
 }

@@ -17,8 +17,7 @@ namespace ProjePersonelModel.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
-        public string PlaceOfBirth { get; set; }
-        public string EducationStatus { get; set; }
+     
         public DateTime StartWorkDate { get; set; }
         public DateTime? FinishWorkDate { get; set; }
 
@@ -35,6 +34,10 @@ namespace ProjePersonelModel.Entities
         public int  GenderID { get; set; }
         public virtual  Gender Gender { get; set; }
 
+        public int EducationID { get; set; }
+        public virtual EducationStatus EducationStatus { get; set; }
+        public int PlaceOfBirthID { get; set; }
+        public virtual PlaceOfBirth PlaceOfBirth { get; set; }
 
 
         public virtual ICollection<PersonnelAddress> PersonnelAddresses { get; set; }

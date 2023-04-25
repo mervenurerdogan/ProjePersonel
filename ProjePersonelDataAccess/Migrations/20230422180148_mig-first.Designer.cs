@@ -12,8 +12,8 @@ using ProjePersonelDataAccess.Context;
 namespace ProjePersonelDataAccess.Migrations
 {
     [DbContext(typeof(ProjePersonelContext))]
-    [Migration("20230418011055_mig-1")]
-    partial class mig1
+    [Migration("20230422180148_mig-first")]
+    partial class migfirst
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,7 +60,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             DepartmanID = 1,
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(3487),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(394),
                             DepartmanName = "Yazılım",
                             Description = "A şirketinin    Yazılım Bölümü ",
                             IsActive = true,
@@ -69,9 +69,89 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             DepartmanID = 2,
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(3490),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(399),
                             DepartmanName = "Muhasebe",
                             Description = "A şirketinin    Muhasebe Bölümü ",
+                            IsActive = true,
+                            IsDeleted = false
+                        });
+                });
+
+            modelBuilder.Entity("ProjePersonelModel.Entities.EducationStatus", b =>
+                {
+                    b.Property<int>("EducationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EducationID"));
+
+                    b.Property<DateTime>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EducationStatusName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("EducationID");
+
+                    b.ToTable("EducationStatuses", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            EducationID = 1,
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(5808),
+                            EducationStatusName = "İlköğretim",
+                            IsActive = true,
+                            IsDeleted = false
+                        });
+                });
+
+            modelBuilder.Entity("ProjePersonelModel.Entities.Gender", b =>
+                {
+                    b.Property<int>("GenderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GenderID"));
+
+                    b.Property<DateTime>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GenderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("GenderID");
+
+                    b.ToTable("Genders", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            GenderID = 1,
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(3110),
+                            GenderName = "Kadın",
+                            IsActive = true,
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            GenderID = 2,
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(3112),
+                            GenderName = "Erkek",
                             IsActive = true,
                             IsDeleted = false
                         });
@@ -117,7 +197,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             MissionID = 1,
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 55, DateTimeKind.Local).AddTicks(1454),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(2505),
                             DepartmanID = 1,
                             Description = "A şirketi  yazılım bölümünde çalışan görevi mühendis olan kişi",
                             IsActive = true,
@@ -127,7 +207,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             MissionID = 2,
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 55, DateTimeKind.Local).AddTicks(1461),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(2508),
                             DepartmanID = 2,
                             Description = "A şirketi  muhasebe bölümünde çalışan görevi muhasebeci olan kişi",
                             IsActive = true,
@@ -176,7 +256,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             PersonnelPhoneNumberID = 1,
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(5294),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(2672),
                             IsActive = true,
                             IsDeleted = false,
                             NumberDescription = "Cep Telefon Numarası",
@@ -202,10 +282,7 @@ namespace ProjePersonelDataAccess.Migrations
                     b.Property<int>("DepartmanID")
                         .HasColumnType("int");
 
-                    b.Property<int>("DriverLicense")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EducationStatus")
+                    b.Property<int>("EducationID")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -215,7 +292,7 @@ namespace ProjePersonelDataAccess.Migrations
                     b.Property<DateTime>("FinishWorkDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Gender")
+                    b.Property<int>("GenderID")
                         .HasColumnType("int");
 
                     b.Property<string>("IdentityNumber")
@@ -237,9 +314,8 @@ namespace ProjePersonelDataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("PlaceOfBirth")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PlaceOfBirthID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartWorkDate")
                         .HasColumnType("datetime2");
@@ -254,11 +330,20 @@ namespace ProjePersonelDataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime>("UpdateDateTime")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("PersonnelID");
 
                     b.HasIndex("DepartmanID");
 
+                    b.HasIndex("EducationID");
+
+                    b.HasIndex("GenderID");
+
                     b.HasIndex("MissionID");
+
+                    b.HasIndex("PlaceOfBirthID");
 
                     b.ToTable("Personnels", (string)null);
 
@@ -267,22 +352,22 @@ namespace ProjePersonelDataAccess.Migrations
                         {
                             PersonnelID = 1,
                             BirthDate = new DateTime(1985, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(9377),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(1139),
                             DepartmanID = 1,
-                            DriverLicense = 3,
-                            EducationStatus = 4,
+                            EducationID = 1,
                             Email = "user@gmail.com",
                             FinishWorkDate = new DateTime(2022, 2, 1, 8, 0, 0, 0, DateTimeKind.Unspecified),
-                            Gender = 2,
+                            GenderID = 1,
                             IdentityNumber = "98765432122",
                             IsActive = true,
                             IsDeleted = false,
                             MissionID = 1,
                             Name = "Ayşe",
-                            PlaceOfBirth = "Ankara",
+                            PlaceOfBirthID = 1,
                             StartWorkDate = new DateTime(2022, 2, 1, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             SummaryInfoPersonnel = "Personel Açıklama hakkında ",
-                            Surname = "Yılmaz"
+                            Surname = "Yılmaz",
+                            UpdateDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(1140)
                         });
                 });
 
@@ -328,10 +413,46 @@ namespace ProjePersonelDataAccess.Migrations
                             AdressID = 1,
                             Address = "Çiçek sokak gül apartmanı No10",
                             AddressDescription = "Ev Adresi",
-                            CreatedDateTime = new DateTime(2023, 4, 18, 4, 10, 55, 54, DateTimeKind.Local).AddTicks(6713),
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 548, DateTimeKind.Local).AddTicks(4373),
                             IsActive = true,
                             IsDeleted = false,
                             PersonnelID = 1
+                        });
+                });
+
+            modelBuilder.Entity("ProjePersonelModel.Entities.PlaceOfBirth", b =>
+                {
+                    b.Property<int>("CityID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CityID"));
+
+                    b.Property<string>("CityName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CityID");
+
+                    b.ToTable("PlaceOfBirths", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            CityID = 1,
+                            CityName = "Adana",
+                            CreatedDateTime = new DateTime(2023, 4, 22, 21, 1, 48, 549, DateTimeKind.Local).AddTicks(4477),
+                            IsActive = true,
+                            IsDeleted = false
                         });
                 });
 
@@ -365,15 +486,39 @@ namespace ProjePersonelDataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ProjePersonelModel.Entities.EducationStatus", "EducationStatus")
+                        .WithMany("Personnels")
+                        .HasForeignKey("EducationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjePersonelModel.Entities.Gender", "Gender")
+                        .WithMany("Personnels")
+                        .HasForeignKey("GenderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ProjePersonelModel.Entities.Mission", "Mission")
                         .WithMany("Personnels")
                         .HasForeignKey("MissionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ProjePersonelModel.Entities.PlaceOfBirth", "PlaceOfBirth")
+                        .WithMany("Personnels")
+                        .HasForeignKey("PlaceOfBirthID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Departman");
 
+                    b.Navigation("EducationStatus");
+
+                    b.Navigation("Gender");
+
                     b.Navigation("Mission");
+
+                    b.Navigation("PlaceOfBirth");
                 });
 
             modelBuilder.Entity("ProjePersonelModel.Entities.PersonnelAddress", b =>
@@ -394,6 +539,16 @@ namespace ProjePersonelDataAccess.Migrations
                     b.Navigation("Personnels");
                 });
 
+            modelBuilder.Entity("ProjePersonelModel.Entities.EducationStatus", b =>
+                {
+                    b.Navigation("Personnels");
+                });
+
+            modelBuilder.Entity("ProjePersonelModel.Entities.Gender", b =>
+                {
+                    b.Navigation("Personnels");
+                });
+
             modelBuilder.Entity("ProjePersonelModel.Entities.Mission", b =>
                 {
                     b.Navigation("Personnels");
@@ -404,6 +559,11 @@ namespace ProjePersonelDataAccess.Migrations
                     b.Navigation("PersonnelAddresses");
 
                     b.Navigation("PersonnelPhoneNumbers");
+                });
+
+            modelBuilder.Entity("ProjePersonelModel.Entities.PlaceOfBirth", b =>
+                {
+                    b.Navigation("Personnels");
                 });
 #pragma warning restore 612, 618
         }

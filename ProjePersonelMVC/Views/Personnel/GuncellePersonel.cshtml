@@ -27,8 +27,12 @@
 
     </div>
     <div class="col-md-6">
-        <label for="inputAddress2" class="form-label">Doğum Yeri</label>
-        <input type="text" class="form-control" asp-for="PlaceOfBirth">
+
+        <label for="PlaceOfBirthID" class="form-label">Doğum Yeri Seçin </label>
+        <select asp-for="PlaceOfBirthID" class="form-control" asp-items=" ViewBag.Sehirler">
+            <option hidden value="-1"> Seçiniz </option>
+        </select>
+
     </div>
     <div class="col-md-6">
         <label for="StartWorkDate" class="form-label">İş Başlangıç Tarihi</label>
@@ -48,8 +52,14 @@
         <textarea asp-for="SummaryInfoPersonnel" class="form-control"> </textarea>
     </div>
     <div class="col-md-3">
-        <label for="EducationStatus" class="form-label">Eğitim Durumu</label>
-        <input type="text" asp-for="EducationStatus" class="form-control" />
+        <div class="col-md-3">
+
+            <label for="EducationStatusID" class="form-label">Eğitim Durumu Seçiniz   </label>
+            <select asp-for="EducationID" class="form-control" asp-items=" ViewBag.Egitimler">
+                <option hidden value="-1"> Seçiniz </option>
+            </select>
+
+        </div>
 
     </div>
 
