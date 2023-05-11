@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjePersonelDataAccess.Context;
 
@@ -11,9 +12,11 @@ using ProjePersonelDataAccess.Context;
 namespace ProjePersonelDataAccess.Migrations
 {
     [DbContext(typeof(ProjePersonelContext))]
-    partial class ProjePersonelContextModelSnapshot : ModelSnapshot
+    [Migration("20230511094605_mig-active")]
+    partial class migactive
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,7 +60,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             DepartmanID = 1,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 66, DateTimeKind.Local).AddTicks(5560),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 201, DateTimeKind.Local).AddTicks(6470),
                             DepartmanName = "Yazılım",
                             Description = "A şirketinin    Yazılım Bölümü ",
                             IsActive = true,
@@ -66,7 +69,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             DepartmanID = 2,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 66, DateTimeKind.Local).AddTicks(5562),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 201, DateTimeKind.Local).AddTicks(6472),
                             DepartmanName = "Muhasebe",
                             Description = "A şirketinin    Muhasebe Bölümü ",
                             IsActive = true,
@@ -103,7 +106,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             EducationID = 1,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(9315),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 203, DateTimeKind.Local).AddTicks(648),
                             EducationStatusName = "İlköğretim",
                             IsActive = true,
                             IsDeleted = false
@@ -139,7 +142,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             GenderID = 1,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(6970),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(8195),
                             GenderName = "Kadın",
                             IsActive = true,
                             IsDeleted = false
@@ -147,7 +150,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             GenderID = 2,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(6973),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(8197),
                             GenderName = "Erkek",
                             IsActive = true,
                             IsDeleted = false
@@ -194,7 +197,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             MissionID = 1,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(6579),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(7774),
                             DepartmanID = 1,
                             Description = "A şirketi  yazılım bölümünde çalışan görevi mühendis olan kişi",
                             IsActive = true,
@@ -204,7 +207,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             MissionID = 2,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(6582),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(7775),
                             DepartmanID = 2,
                             Description = "A şirketi  muhasebe bölümünde çalışan görevi muhasebeci olan kişi",
                             IsActive = true,
@@ -253,7 +256,7 @@ namespace ProjePersonelDataAccess.Migrations
                         new
                         {
                             PersonnelPhoneNumberID = 1,
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 66, DateTimeKind.Local).AddTicks(7214),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 201, DateTimeKind.Local).AddTicks(8241),
                             IsActive = true,
                             IsDeleted = false,
                             NumberDescription = "Cep Telefon Numarası",
@@ -358,7 +361,7 @@ namespace ProjePersonelDataAccess.Migrations
                             PersonnelID = 1,
                             Aktifmi = false,
                             BirthDate = new DateTime(1985, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(5319),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(6523),
                             DepartmanID = 1,
                             EducationID = 1,
                             Email = "user@gmail.com",
@@ -373,28 +376,7 @@ namespace ProjePersonelDataAccess.Migrations
                             StartWorkDate = new DateTime(2022, 2, 1, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             SummaryInfoPersonnel = "Personel Açıklama hakkında ",
                             Surname = "Yılmaz",
-                            UpdateDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(5319)
-                        },
-                        new
-                        {
-                            PersonnelID = 2,
-                            Aktifmi = false,
-                            BirthDate = new DateTime(1991, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(5323),
-                            DepartmanID = 1,
-                            EducationID = 1,
-                            Email = "user@gmail.com",
-                            GenderID = 1,
-                            IdentityNumber = "58715432129",
-                            IsActive = true,
-                            IsDeleted = false,
-                            MissionID = 1,
-                            Name = "Ali",
-                            PlaceOfBirthID = 1,
-                            StartWorkDate = new DateTime(2020, 2, 1, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            SummaryInfoPersonnel = "Personel Açıklama hakkında ",
-                            Surname = "Er",
-                            UpdateDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(5324)
+                            UpdateDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(6524)
                         });
                 });
 
@@ -440,7 +422,7 @@ namespace ProjePersonelDataAccess.Migrations
                             AdressID = 1,
                             Address = "Çiçek sokak gül apartmanı No10",
                             AddressDescription = "Ev Adresi",
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 66, DateTimeKind.Local).AddTicks(8727),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 201, DateTimeKind.Local).AddTicks(9745),
                             IsActive = true,
                             IsDeleted = false,
                             PersonnelID = 1
@@ -477,7 +459,7 @@ namespace ProjePersonelDataAccess.Migrations
                         {
                             CityID = 1,
                             CityName = "Adana",
-                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 47, 46, 67, DateTimeKind.Local).AddTicks(8170),
+                            CreatedDateTime = new DateTime(2023, 5, 11, 12, 46, 5, 202, DateTimeKind.Local).AddTicks(9467),
                             IsActive = true,
                             IsDeleted = false
                         });

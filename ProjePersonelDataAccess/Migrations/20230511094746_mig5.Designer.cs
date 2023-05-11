@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjePersonelDataAccess.Context;
 
@@ -11,9 +12,11 @@ using ProjePersonelDataAccess.Context;
 namespace ProjePersonelDataAccess.Migrations
 {
     [DbContext(typeof(ProjePersonelContext))]
-    partial class ProjePersonelContextModelSnapshot : ModelSnapshot
+    [Migration("20230511094746_mig5")]
+    partial class mig5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -17,7 +17,8 @@ namespace ProjePersonelModel.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
-     
+        public bool Aktifmi { get; set; }
+
         public DateTime StartWorkDate { get; set; }
         public DateTime? FinishWorkDate { get; set; }
 

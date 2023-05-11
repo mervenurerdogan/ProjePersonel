@@ -30,6 +30,9 @@ namespace ProjePersonelDataAccess.Mapping
             builder.Property(p => p.SummaryInfoPersonnel).HasMaxLength(300);
             builder.Property(p => p.IsDeleted).IsRequired();
             builder.Property(p => p.IsActive).IsRequired();
+            //builder.Property(p => p.Aktifmi).HasComputedColumnSql("(CASE WHEN FinishWorkDate  IS NULL THEN 1 ELSE 0 END)");
+            builder.Property(p => p.Aktifmi).HasComputedColumnSql("(CASE WHEN FinishWorkDate IS NULL THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END)");
+
             builder.ToTable("Personnels");
 
             //foreign key one to many branch,departman,mission
@@ -60,7 +63,27 @@ namespace ProjePersonelDataAccess.Mapping
                 IsDeleted = false,
                 CreatedDateTime = DateTime.Now,
                 UpdateDateTime=DateTime.Now
-            });
+            }, new Personnel
+            {
+                PersonnelID = 2,
+                IdentityNumber = "58715432129",
+                Name = "Ali",
+                Surname = "Er",
+                BirthDate = new DateTime(1991, 3, 20),
+                EducationID = 1,
+                StartWorkDate = new DateTime(2020, 2, 1, 17, 0, 0),
+                Email = "user@gmail.com",
+                GenderID = 1,
+                SummaryInfoPersonnel = "Personel Açıklama hakkında ",
+                DepartmanID = 1,
+                MissionID = 1,
+                PlaceOfBirthID = 1,
+                IsActive = true,
+                IsDeleted = false,
+                CreatedDateTime = DateTime.Now,
+                UpdateDateTime = DateTime.Now
+            }
+            );
 
         }
      }

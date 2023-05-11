@@ -38,26 +38,26 @@ namespace ProjePersonelDataAccess.Concrete
         public int GetirAktifCalisanPersonel()
         {
             using var context = new ProjePersonelContext();
-            return context.Personnel.Count(p => p.IsActive == true);
+            return context.Personnel.Count(p => p.Aktifmi == true);
         }
 
         public int GetirAyrilmisCalisanPersonel()
         {
             using var context = new ProjePersonelContext();
-            return context.Personnel.Count(p => p.IsActive == false);
+            return context.Personnel.Count(p => p.Aktifmi == false);
         }
 
         public List<Personnel> GetIsActivePersonnel()
         {
             using var context = new ProjePersonelContext();
-            return context.Personnel.Include(p => p.Gender).Include(p => p.Departman).Include(p => p.Mission).Include(p=>p.EducationStatus).Include(p=>p.PlaceOfBirth).Where(p => p.IsActive == true).OrderByDescending(I => I.CreatedDateTime).ToList();
+            return context.Personnel.Include(p => p.Gender).Include(p => p.Departman).Include(p => p.Mission).Include(p=>p.EducationStatus).Include(p=>p.PlaceOfBirth).Where(p => p.Aktifmi==true).OrderByDescending(I => I.CreatedDateTime).ToList();
         }
 
         public List<Personnel> GetNoIsActivePersonnel()
         {//çalışmayan aktif olmayan personel
             using var context = new ProjePersonelContext();
             
-            return context.Personnel.Include(p=>p.Gender).Include(p=>p.Departman).Include(p=>p.Mission).Include(p => p.EducationStatus).Include(p => p.PlaceOfBirth).Where(p=>p.IsActive==false).OrderByDescending(I => I.CreatedDateTime).ToList();
+            return context.Personnel.Include(p=>p.Gender).Include(p=>p.Departman).Include(p=>p.Mission).Include(p => p.EducationStatus).Include(p => p.PlaceOfBirth).Where(p=>p.Aktifmi ==false).OrderByDescending(I => I.CreatedDateTime).ToList();
         }
 
         public void PersonelDelete(int id)
